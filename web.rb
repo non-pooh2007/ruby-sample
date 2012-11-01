@@ -1,5 +1,10 @@
 require 'sinatra'
 
 get '/' do
-  "Hello, world"
+  "<p>what your name </p>"
+  +"Hello world"
+  +"<form action='/hello' method='POST'>"
+  +"<input type='text' name='name'>
+  +"<input type='submit' value='send'>
+  +"</form>"
 end
