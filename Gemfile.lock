@@ -2,7 +2,9 @@ GEM
   remote: http://rubygems.org/
   specs:
     daemons (1.1.9)
-    eventmachine (0.12.10)
+    eventmachine (1.0.0)
+    eventmachine (1.0.0-x86-mingw32)
+    haml (3.1.7)
     rack (1.4.1)
     sinatra (1.1.0)
       rack (~> 1.1)
@@ -15,7 +17,10 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
+  eventmachine (= 1.0.0)
+  haml
   sinatra (= 1.1.0)
   thin
