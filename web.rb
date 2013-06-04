@@ -12,3 +12,7 @@ end
 get '/google' do
   haml :google
 end
+
+get '/gg' do
+  haml :gg
+end
