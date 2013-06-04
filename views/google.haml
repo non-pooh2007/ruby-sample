@@ -12,12 +12,10 @@
     %script{ :type => "text/javascript" }
       $("map").style.width = document.width + "px";
       $("map").style.height = document.height + "px";
-      / get location info.
       navigator.geolocation.getCurrentPosition(
         function(pos){
 	  var lat = pos.coords.latitude;
 	  var lng = pos.coords.longitude;
-	  / Display Map by Google Maps API
 	  var mypos = new google.maps.LatLng(lat, lng);
 	  var option = {
 	    zoom:16,
