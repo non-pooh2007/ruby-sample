@@ -12,19 +12,20 @@
     :javascript
       $("map").style.width = document.width + "px";
       $("map").style.height = document.height + "px";
-      navigator.geolocation.getCurrentPosition( 
-      function(pos){ 
-      var lat = pos.coords.latitude;
-      var lng = pos.coords.longitude;
-      var mypos = new google.maps.LatLng(lat, lng);
-      var option = {
-      zoom:16, center:mypos,
-      mapTypeId:google.maps.MapTypeId.ROADMAP };
-      var gmap = new google.maps.Map($("map"), option);
-      var gmarker = new google.maps.Marker({
-      position:mypos,
-      map:gmap
-      });
-      });
+      navigator.geolocation.getCurrentPosition( );
+      -#
+        function(pos){ 
+        var lat = pos.coords.latitude;
+        var lng = pos.coords.longitude;
+        var mypos = new google.maps.LatLng(lat, lng);
+        var option = {
+        zoom:16, center:mypos,
+        mapTypeId:google.maps.MapTypeId.ROADMAP };
+        var gmap = new google.maps.Map($("map"), option);
+        var gmarker = new google.maps.Marker({
+        position:mypos,
+        map:gmap
+        });
+        });
       function $(id){ return document.getElementById(id); }
 
