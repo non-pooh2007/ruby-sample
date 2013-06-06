@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'haml'
-require 'em-websocket'
-
+require 'sinatra/rocketio'
 
 get '/' do
   "<p>What your name? </p>"+"<form action='/hello' method='POST'><input type='text' name='name'><input type='submit' value='send'></form>"
