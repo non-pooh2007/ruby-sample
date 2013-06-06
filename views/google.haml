@@ -10,16 +10,25 @@
   %body
     %div#map
     %script{ :type => "text/javascript" }
+      fGetLocation = 0;
+      prevLat = 0; prevLng = 0;
       $("map").style.width = document.width + "px";
       $("map").style.height = document.height + "px";
-      navigator.geolocation.getCurrentPosition( 
-      function(pos){ 
+      navigator.geolocation.getCurrentPosition( notifyPos );
+      function notifyPos(pos){ 
       var lat = pos.coords.latitude;
       var lng = pos.coords.longitude;
       var mypos = new google.maps.LatLng(lat, lng);
       var option = { zoom:16, center:mypos,
       mapTypeId:google.maps.MapTypeId.ROADMAP };
-      var gmap = new google.maps.Map($("map"), option);
-      var gmarker = new google.maps.Marker({ position:mypos, map:gmap }); });
+      if ( fGetLocation == 0 ) {
+      gmap = new google.maps.Map($("map"), option);
+      gmarker = new google.maps.Marker({ position:mypos, map:gmap });
+      fGetLocation = 1;
+      } else {
+      gmap.panTo( mypos );
+      gmarker.setPosition( mypos );
+      } // 
+      }
       function $(id){ return document.getElementById(id); }
 
