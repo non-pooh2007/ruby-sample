@@ -1,16 +1,16 @@
 $(function(){
-    ws = new WebSocket("ws://non-pooh2007.herokuapp.com:51234");
+    ws = new WebSocket("ws://non-pooh2007.herokuapp.com:80");
 //    ws = new WebSocket("ws://localhost:51234");
     ws.onmessage = function(evt) {
         $("#msg").append("<p>"+evt.data+"</p>");
     };
 
     ws.onclose = function() {
-        console.log("ï¬Ç∂ÇΩÇÊ")
+        console.log("closed")
     };
 
     ws.onopen = function() {
-        ws.send("åqÇ™Ç¡ÇΩÇÊÅI(?????) ");
+        ws.send("connect!(?????) ");
     };
 
     $("#input").keypress(function(e){
