@@ -4,7 +4,7 @@ require 'em-websocket'
 Process.daemon(nochdir=true) if ARGV[0] == "-D"
 connections = Array.new
 
-EventMachine::WebSocket.start(:host => "non-pooh2007.herokuapp.com", :port => 51234) do |ws|
+EventMachine::WebSocket.start(:port => 51234) do |ws|
   ws.onopen {
     ws.send "connect?(?????) "
     connections.push(ws) unless connections.index(ws)
