@@ -2,9 +2,14 @@ GEM
   remote: http://rubygems.org/
   specs:
     daemons (1.1.9)
+    em-websocket (0.5.0)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.5.3)
     eventmachine (1.0.0)
     eventmachine (1.0.0-x86-mingw32)
     haml (3.1.7)
+    http_parser.rb (0.5.3)
+    http_parser.rb (0.5.3-x86-mingw32)
     rack (1.4.1)
     sinatra (1.1.0)
       rack (~> 1.1)
@@ -20,6 +25,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  em-websocket
   eventmachine (= 1.0.0)
   haml
   sinatra (= 1.1.0)

@@ -6,7 +6,7 @@ connections = Array.new
 
 EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 51234) do |ws|
   ws.onopen {
-    ws.send "Œq‚ª‚Á‚½?(?????) "
+    ws.send "connect?(?????) "
     connections.push(ws) unless connections.index(ws)
   }
   ws.onmessage { |msg|
@@ -17,5 +17,5 @@ EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 51234) do |ws|
       con.send(msg) unless con == ws
     }
   }
-  ws.onclose   { puts "•Â‚¶‚Ü‚·?" }
+  ws.onclose   { puts "close?" }
 end
