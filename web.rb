@@ -17,3 +17,6 @@ end
 get '/gg' do
   haml :gg
 end
+
+get '/chat' do
+end

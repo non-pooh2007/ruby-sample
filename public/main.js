@@ -1,5 +1,5 @@
 $(function(){
-    ws = new WebSocket("ws://non-pooh2007.herokuapp.com:80");
+    ws = new WebSocket("ws://non-pooh2007.herokuapp.com:80/chat");
 //    ws = new WebSocket("ws://localhost:51234");
     ws.onmessage = function(evt) {
         $("#msg").append("<p>"+evt.data+"</p>");
