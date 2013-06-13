@@ -2,7 +2,7 @@ require 'sinatra'
 require 'haml'
 require 'sinatra/websocketio'
 
-io = Sinatra:WebSocketIO
+io = Sinatra::WebSocketIO
 
 io.on :connect do |session|
   puts "new client <#{session}>"
@@ -14,6 +14,16 @@ io.on :disconnect do |session|
   puts "disconnect client <#{session}>"
   push :chat, {:name => "system", :message => "bye <#{session}>"}
 end
+
+io.on :chat do |data, from|
+  puts "#{data['name']} : #{data['message']} (from:#{from})"
+  push :chat, data
+end
+
+io.on :error do |err|
+  STDERR.puts "error!! #{err}"
+end
+
 
 get '/' do
   "<p>What your name? </p>"+"<form action='/hello' method='POST'><input type='text' name='name'><input type='submit' value='send'></form>"
