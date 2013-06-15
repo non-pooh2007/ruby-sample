@@ -6,6 +6,17 @@ require 'pusher'
 set :server, 'thin'
 set :sockets, []
 
+get '/login' do
+  "<p>What your name? </p>"+"<form action='/hello' method='POST'><input type='text' name='name'><input type='submit' value='send'></form>"
+end
+
+post '/hello' do
+  request.body.rewind
+  data = JSON.parse request.body.read
+  warn( "params" + params )
+  warn( "body" + data )
+end
+
 get '/pusher' do
   Pusher['test_channel'].trigger('my_event', {:id => 1234, :message => 'hello world'})
 end
