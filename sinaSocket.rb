@@ -2,6 +2,7 @@ require 'sinatra'
 require 'haml'
 require 'sinatra-websocket'
 require 'pusher'
+require 'json'
 
 set :server, 'thin'
 set :sockets, []
