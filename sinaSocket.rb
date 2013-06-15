@@ -27,6 +27,7 @@ post '/login' do
 Pre Head end
 
   foot_header = <<"Foot Head end"
+  </script>
     <script src="/embed.js" type="text/javascript">
   </head> <body>
 Foot Head end
