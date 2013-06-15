@@ -34,7 +34,7 @@ Pre Head end
 Foot Head end
 
   [ 200, { 'Content-Type' => 'text/html' },
-  [ pre_header + 'bind_event ="' + params['name'] + '";' + foot_header + '</body></html>'] ]
+  [ pre_header + "bind_event =\'" + params['name'] + "\';" + foot_header + "</body></html>"] ]
 
 #  data = JSON.parse request.body.read
 #  warn( "params" + params )
