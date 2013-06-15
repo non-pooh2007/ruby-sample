@@ -1,9 +1,14 @@
 require 'sinatra'
 require 'haml'
 require 'sinatra-websocket'
+require 'pusher'
 
 set :server, 'thin'
 set :sockets, []
+
+get '/pusher' do
+  Pusher['test_channel'].trigger('my_event', {:message => 'hello world'})
+end
 
 get '/' do
     # warn( "CON:" + env['HTTP_CONNECTION'] )
