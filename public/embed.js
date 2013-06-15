@@ -5,7 +5,7 @@
 
     var pusher = new Pusher('92577fdc22964f716bc6');
     var channel = pusher.subscribe('test_channel');
-    channel.bind(bind_event, function(data) {
+    channel.bind('tom', function(data) {
       alert(data.id + data.message);
     });
 
