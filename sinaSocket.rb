@@ -23,7 +23,7 @@ post '/login' do
   <head>
     <title>Pusher Test</title>
     <script src="http://js.pusher.com/2.0/pusher.min.js" type="text/javascript"></script>
-    <script>
+    <script type="text/javascript">
 Pre Head end
 
   foot_header = <<"Foot Head end"
