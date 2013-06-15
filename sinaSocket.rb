@@ -7,7 +7,7 @@ set :server, 'thin'
 set :sockets, []
 
 get '/pusher' do
-  Pusher['test_channel'].trigger('my_event', {:message => 'hello world'})
+  Pusher['test_channel'].trigger('my_event', {:id => 1234, :message => 'hello world'})
 end
 
 get '/' do
