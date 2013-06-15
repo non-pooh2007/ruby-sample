@@ -29,6 +29,7 @@ Pre Head end
   foot_header = <<"Foot Head end"
   </script>
     <script src="/embed.js" type="text/javascript">
+    </script>
   </head> <body>
 Foot Head end
 
