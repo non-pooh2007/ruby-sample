@@ -12,8 +12,7 @@ get '/login' do
 end
 
 post '/hello' do
-  warn( "params=" + params )
-  request.body.rewind
+  warn( params )
 #  data = JSON.parse request.body.read
 #  warn( "params" + params )
 #  warn( "body" + data )
