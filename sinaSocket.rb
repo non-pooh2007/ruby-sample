@@ -6,8 +6,9 @@ set :server, 'thin'
 set :sockets, []
 
 get '/' do
-    warn( env['HTTP_CONNECTION'] )
-    warn( env['HTTP_UPGRADE'] )
+    # warn( "CON:" + env['HTTP_CONNECTION'] )
+    # warn( "UP:" + env['HTTP_UPGRADE'] )
+    warn( env )
     request.websocket do |ws|
       ws.onopen do
         ws.send("Hello World!")
