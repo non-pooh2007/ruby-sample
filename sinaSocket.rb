@@ -13,9 +13,9 @@ end
 
 post '/hello' do
   request.body.rewind
-  data = JSON.parse request.body.read
-  warn( "params" + params )
-  warn( "body" + data )
+#  data = JSON.parse request.body.read
+#  warn( "params" + params )
+#  warn( "body" + data )
 end
 
 get '/pusher' do
