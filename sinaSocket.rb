@@ -6,9 +6,6 @@ set :server, 'thin'
 set :sockets, []
 
 get '/' do
-  if !request.websocket?
-    haml :index
-  else
     request.websocket do |ws|
       ws.onopen do
         ws.send("Hello World!")
@@ -22,6 +19,5 @@ get '/' do
 	settings.sockets.delete(ws)
       end
     end
-  end
 end
 
