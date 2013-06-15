@@ -43,7 +43,8 @@ end
 get '/pusher' do
   # Pusher['test_channel'].trigger('my_event', {:id => 1234, :message => 'hello world'})
   warn( $users )
-  Pusher['test_channel'].trigger( $users, {:id => 1234, :message => 'hello world'})
+  # Pusher['test_channel'].trigger( $users, {:id => 1234, :message => 'hello world'})
+  Pusher['test_channel'].trigger( 'tom', {:id => 1234, :message => 'hello world'})
 end
 
 get '/' do
