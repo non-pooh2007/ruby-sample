@@ -17,8 +17,22 @@ post '/login' do
   warn( params )
   $users.push( params['name'] )
   warn( $users )
+
+  pre_header = <<"Pre Head end"
+  <!DOCTYPE html>
+  <head>
+    <title>Pusher Test</title>
+    <script src="http://js.pusher.com/2.0/pusher.min.js" type="text/javascript"></script>
+    <script>
+Pre Head end
+
+  foot_header = <<"Foot Head end"
+    <script src="/embed.js" type="text/javascript">
+  </head> <body>
+Foot Head end
+
   [ 200, { 'Content-Type' => 'text/html' },
-  ['<html><body>' + params['name'] + '</body></html>'] ]
+  [ pre_header + 'var bind_event =' + params['name'] + ';' + foot_header + '</body></html>'] ]
 
 #  data = JSON.parse request.body.read
 #  warn( "params" + params )
