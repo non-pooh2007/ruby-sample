@@ -10,31 +10,19 @@ set :sockets, []
 $users = []
 
 get '/login' do
-  "<p>What your name? </p>"+"<form action='/login' method='POST'><input type='text' name='name'><input type='submit' value='send'></form>"
+  "<p>What your name? </p>"+"<form action='/login' method='POST'><input type='text' name='name'><input type='submit' value='login'></form>"
 end
 
 post '/login' do
   warn( params )
   $users.push( params['name'] )
   warn( $users )
+  js_file = open( "public/index2.html", "rb" )
+  text_data = js_file.read
+  js_file.close
+  text_data.sub!(/my_event/, params['name'] )
 
-  pre_header = <<"Pre Head end"
-  <!DOCTYPE html>
-  <head>
-    <title>Pusher Test</title>
-    <script src="http://js.pusher.com/2.0/pusher.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-Pre Head end
-
-  foot_header = <<"Foot Head end"
-  </script>
-    <script src="/embed.js" type="text/javascript">
-    </script>
-  </head> <body>
-Foot Head end
-
-  [ 200, { 'Content-Type' => 'text/html' },
-  [ pre_header + "bind_event =\'" + params['name'] + "\';" + foot_header + "</body></html>"] ]
+  [ 200, { 'Content-Type' => 'text/html' }, text_data ]
 
 #  data = JSON.parse request.body.read
 #  warn( "params" + params )
@@ -42,10 +30,24 @@ Foot Head end
 end
 
 get '/pusher' do
-  # Pusher['test_channel'].trigger('my_event', {:id => 1234, :message => 'hello world'})
+  # Pusher['test_channel'].trigger('my_event', {:x => 1234, :y => 000 })
   warn( $users )
-  Pusher['test_channel'].trigger( $users, {:id => 1234, :message => 'hello world'})
-  # Pusher['test_channel'].trigger( 'tom', {:id => 1234, :message => 'hello world'})
+  $users.each  do |user|
+    Pusher['test_channel'].trigger( user, {:user => user, :x => 1234, :y => 5678 })
+  end
+end
+
+post '/post_pos' do
+  warn( params )
+  Pusher['test_channel'].trigger( 'tom', {:x => params['x'] , :y => params['y']} )
+end
+
+get '/google' do
+  haml :google
+end
+
+get '/google_frame' do
+  haml :google_frame
 end
 
 get '/' do

@@ -1,9 +1,19 @@
 <html>
   <head>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
+    <script>
+      function init(){
+        document.getElementById('input').style.visibility='hidden';
+        document.getElementById('post_position').style.visibility='hidden';
+      }
+    </script>
     <script src='main.js'></script>
+    <form id="post_position">
+      <input id="x" type="text">
+      <input id="y" type="text">
+    </form>
   </head>
-  <body>
+  <body onLoad="init()">
     <input id="input" type="text" />
     <div id="msg"></div>
   </body>
