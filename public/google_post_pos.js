@@ -22,6 +22,7 @@
     } else {
       var req = new XMLHttpRequest();
       req.open('POST', '/post_pos', false);
+      req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       req.send("x=" + lat + "&y=" + lng + "&disp_pos=0" );
       gmap.panTo( mypos );
       gmarker.setPosition( mypos );
