@@ -11,8 +11,9 @@
     <div id='map'></div>
     <script type="text/javascript">
       fGetLocation = 0;
-      $("map").style.width = document.width + "px";
-      $("map").style.height = document.height + "px";
+      // $("map").style.visibility = "visible";
+      $("map").style.width = screen.width + "px";
+      $("map").style.height = screen.height + "px";
       // navigator.geolocation.getCurrentPosition( notifyPos );
       function notifyPos(x,y){
         var mypos = new google.maps.LatLng(x, y);

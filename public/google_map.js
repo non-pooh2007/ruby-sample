@@ -1,7 +1,9 @@
   fGetLocation = 0;
   prevLat = 0; prevLng = 0;
-  $("map").style.width = document.width + "px";
-  $("map").style.height = document.height + "px";
+  // $("map").style.width = document.width + "px";
+  // $("map").style.height = document.height + "px";
+  $("map").style.width = screen.width + "px";
+  $("map").style.height = screen.height + "px";
   navigator.geolocation.getCurrentPosition( notifyPos );
   var watchOption = { enableHighAccuracy:false, timeout:60000, maximumAge:10000 };
   navigator.geolocation.watchPosition( notifyPos, notifyErrPos, watchOption );
