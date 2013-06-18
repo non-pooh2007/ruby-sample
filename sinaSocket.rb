@@ -42,6 +42,10 @@ post '/post_pos' do
   Pusher['test_channel'].trigger( 'tom', {:x => params['x'] , :y => params['y']} )
 end
 
+get '/google_post_pos' do
+  haml :google_post_pos
+end
+
 get '/google' do
   haml :google
 end
