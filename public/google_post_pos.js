@@ -4,8 +4,10 @@
   // $("map").style.height = document.height + "px";
   // $("map").style.width = screen.width + "px";
   // $("map").style.height = screen.height + "px";
-  $("map").style.width = document.body.clientWidth + "px";
-  $("map").style.height = document.body.clientHeight + "px";
+  // $("map").style.width = document.body.clientWidth + "px";
+  // $("map").style.height = document.body.clientHeight + "px";
+  $("map").style.width = window.innerWidth + "px";
+  $("map").style.height = window.innerHeight + "px";
   navigator.geolocation.getCurrentPosition( notifyPos );
   var watchOption = { enableHighAccuracy:false, timeout:60000, maximumAge:10000 };
   navigator.geolocation.watchPosition( notifyPos, notifyErrPos, watchOption );
